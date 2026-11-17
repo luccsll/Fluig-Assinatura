@@ -1,0 +1,122 @@
+/* Campo de assinatura no formulário do Fluig · lucaslima.dev */
+.assinatura {
+  position: relative;
+}
+
+.assinaturaArea {
+  position: relative;
+  height: 200px;
+  border: 1px dashed #c4c9d0;
+  border-radius: 8px;
+  background: #fff;
+  touch-action: none;
+  /* no celular, o dedo desenha em vez de rolar a página */
+  cursor: crosshair;
+}
+
+.assinaturaCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.assinaturaDica {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.assinaturaLinha {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 48px;
+  border-bottom: 1px solid #d1d5db;
+  pointer-events: none;
+}
+
+.assinaturaLinha::before {
+  content: "×";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.assinaturaAcoes {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: none;
+  gap: 4px;
+}
+
+.assinaturaAcoes button {
+  font: 13px/1 inherit;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.assinaturaImagem {
+  display: none;
+  max-width: 80%;
+  max-height: 120px;
+}
+
+.assinaturaStatus {
+  display: none;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #2e7d32;
+}
+
+.assinaturaStatus::before {
+  content: "●";
+  margin-right: 6px;
+}
+
+/* Estado: já tem traço */
+.assinatura.temAssinatura .assinaturaDica {
+  display: none;
+}
+
+.assinatura.temAssinatura .assinaturaAcoes {
+  display: flex;
+}
+
+/* Estado: só leitura */
+.assinatura.somenteLeitura .assinaturaArea {
+  border-style: solid;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assinatura.somenteLeitura .assinaturaCanvas,
+.assinatura.somenteLeitura .assinaturaAcoes {
+  display: none;
+}
+
+.assinatura.somenteLeitura .assinaturaImagem {
+  display: block;
+}
+
+.assinatura.somenteLeitura.temAssinatura .assinaturaStatus {
+  display: block;
+}
+
+/* Estado: obrigatória e vazia na hora de enviar */
+.assinatura.comErro .assinaturaArea {
+  border-color: #d0021b;
+}

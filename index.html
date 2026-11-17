@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitação de Viagem</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form name="form">
+    <label>Assinatura do solicitante</label>
+
+    <div class="assinatura" data-obrigatoria="true">
+      <div class="assinaturaArea">
+        <canvas class="assinaturaCanvas"></canvas>
+        <span class="assinaturaDica">Assine aqui</span>
+        <span class="assinaturaLinha"></span>
+        <img class="assinaturaImagem" alt="Assinatura">
+        <div class="assinaturaAcoes">
+          <button type="button" class="assinaturaDesfazer">Desfazer</button>
+          <button type="button" class="assinaturaLimpar">Limpar</button>
+        </div>
+      </div>
+      <span class="assinaturaStatus">Assinado</span>
+
+      <!-- O campo que guarda a assinatura na solicitação -->
+      <textarea name="assinaturaSolicitante" id="assinaturaSolicitante" style="display:none"></textarea>
+    </div>
+  </form>
+
+  <!-- No Fluig, o jQuery já vem carregado no formulário. Esta linha é só para testar fora dele. -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
